@@ -1,0 +1,11 @@
+<div id="ListPostContainer">
+  <div class="container-post-list">
+    <h1>Post List</h1>
+    <div class="post-list">
+      <app-card-post  *ngFor="let post of post" [post]="post"></app-card-post>
+    </div>
+  </div>
+  <div class="container-filter-user">
+    <app-dropdown-users></app-dropdown-users>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+#CardPost{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: .6rem;
+  border: 1px solid #adb39f;
+  padding: 1rem;
+  color: #ECDFCC;
+  background-color: rgba(105, 117, 101, 0.43);
+  cursor: pointer;
+}
