@@ -1,0 +1,49 @@
+:host {
+  width: 100%;
+}
+
+#DropdownUsersContainer{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  & > .input-user {
+    display: flex;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    flex-direction: row;
+    gap: 5px;
+    height: 3rem;
+    margin-top: 3rem;
+    padding: .9rem;
+    width: 100%;
+
+    & > p {
+      color: rgba(54, 55, 54, 0.37);
+      height: 100%;
+      width: 100%;
+    }
+
+    & > .container-svg {
+      transition: transform 0.2s;
+      width: 15px;
+    }
+  }
+  & > .list-container{
+    display: flex;
+    background-color: white;
+    border-radius: 8px;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 5px;
+    padding: 1rem;
+    width: 100%;
+    & > .item-user{
+      cursor: pointer;
+    }
+  }
+}
+
+.rotated{
+  transform: rotate(180deg);
+}
