@@ -1,11 +1,19 @@
 <div id="ListPostContainer">
   <div class="container-post-list">
-    <h1>Post List</h1>
+    <h1>Lista de post</h1>
     <div class="post-list">
-      <app-card-post  *ngFor="let post of post" [post]="post"></app-card-post>
+    <ng-container *ngIf="!(isLoading$ | async); else loading">
+      <app-card-post *ngFor="let post of (post$ | async)" [post]="post"></app-card-post>
+    </ng-container>
+    <ng-template #loading>
+      <app-card-post-sekeleton *ngFor="let i of [1,2,3,4]"></app-card-post-sekeleton>
+    </ng-template>
     </div>
   </div>
   <div class="container-filter-user">
-    <app-dropdown-users></app-dropdown-users>
+    <h1>Filtrado por usuario</h1>
+    <app-dropdown-users
+      (userSelectedEmmit) = "onUserSelected($event)"
+    ></app-dropdown-users>
   </div>
 </div>

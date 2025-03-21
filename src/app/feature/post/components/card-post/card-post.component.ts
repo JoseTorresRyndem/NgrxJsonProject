@@ -13,6 +13,4 @@ export class CardPostComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  protected readonly encodeURI = encodeURI;
 }

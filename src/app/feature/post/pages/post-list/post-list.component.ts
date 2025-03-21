@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
-import {loadPost} from "../../../../state/post/post.actions";
-import {selectPostList} from "../../../../state/post/post.selectors";
+import {loadPost, postListUserId} from "../../../../state/post/post.actions";
+import {selectLoadingState, selectPostList} from "../../../../state/post/post.selectors";
 import {Post} from "../../../../models/post.models";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-post-list',
@@ -10,14 +11,17 @@ import {Post} from "../../../../models/post.models";
   styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit {
-  post:Post[] = []
+  post$:Observable<Post[]> =  this.store.select(selectPostList);
+  isLoading$:Observable<boolean> = this.store.select(selectLoadingState)
 
   constructor(private store:Store) { }
+
   ngOnInit(): void {
     this.store.dispatch(loadPost())
-    this.store.select(selectPostList).subscribe(post=>{
-      this.post = post;
-    })
+
   }
 
+  onUserSelected(id: number) {
+    this.store.dispatch(postListUserId({userId:id}))
+  }
 }

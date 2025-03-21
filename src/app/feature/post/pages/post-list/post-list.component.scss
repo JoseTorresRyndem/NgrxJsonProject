@@ -13,6 +13,7 @@
     flex-direction: column;
     height: 100%;
     width: 100%;
+    min-width: 10rem ;
     &> h1{
       color: #ECDFCC;
       margin-bottom: 1rem;
@@ -26,11 +27,24 @@
   }
   & > .container-filter-user{
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
     height: 100%;
-    justify-content: center;
     width: 30%;
+    min-width: 10rem ;
+    &> h1{
+      color: #ECDFCC;
+      margin-bottom: 1rem;
+    }
+  }
+}
+@media (max-width: 600px) {
+  #ListPostContainer {
+    flex-direction: column-reverse;
+    & > .container-filter-user {
+      width: 100%;
 
     }
-
+  }
 }
+
