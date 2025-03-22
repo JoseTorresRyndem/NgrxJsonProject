@@ -1,0 +1,32 @@
+
+#CardPostComment{
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(105, 117, 101, 0.15);
+  border-radius: 1rem;
+  border: 4px dotted rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  color: #ECDFCC;
+  gap: .5rem;
+  max-width: 750px;
+  padding: 1rem;
+  width: 100%;
+  &>.card-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    &>.name{
+      font-weight: bold;
+    }
+    &>.email{
+      font-size: 1rem;
+      font-style: italic;
+    }
+  }
+  &>.card-body{
+    font-size: 1rem;
+
+
+  }
+}

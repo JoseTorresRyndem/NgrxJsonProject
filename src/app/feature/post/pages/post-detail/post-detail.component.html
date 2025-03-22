@@ -1,1 +1,10 @@
-<p>post-detail works!</p>
+<div id="CardPostDetail">
+  <p class="back" (click)="back()"><== Back</p>
+  <div  *ngIf="(isloading$|async)" class="loader"></div>
+  <app-card-post-detail  *ngIf="!(isloading$|async)" [postDetail]="(postDetail$ | async)!" ></app-card-post-detail>
+  <div class="list-comments">
+    <div  *ngIf="(isloadingComments$|async) && !(isloading$|async) " class="loader"></div>
+    <app-card-comment *ngFor="let comment of (postDetailComments$ | async)" [comment]="comment"> </app-card-comment>
+  </div>
+</div>
+

@@ -4,6 +4,7 @@ import {User} from "../../../../models/users.models";
 import {loadedUsers} from "../../../../state/users/users.actions";
 import {selectUsersList} from "../../../../state/users/users.selectors";
 import {Observable} from "rxjs";
+import {selectLoadingState} from "../../../../state/post/post.selectors";
 
 @Component({
   selector: 'app-dropdown-users',
@@ -21,7 +22,9 @@ export class DropdownUsersComponent implements OnInit {
   /**
   * User to store the list of users
   * */
-  users: Observable<User[]> = this.store.select(selectUsersList);
+  users$: Observable<User[]> = this.store.select(selectUsersList);
+
+  isLoading$: Observable<boolean> = this.store.select(selectLoadingState);
   /**
    * userSelected to store the list of users
    * */

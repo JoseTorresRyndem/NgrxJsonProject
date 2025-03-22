@@ -6,6 +6,8 @@ import {CommonModule} from "@angular/common";
 import { CardPostComponent } from './components/card-post/card-post.component';
 import { DropdownUsersComponent } from './components/dropdown-users/dropdown-users.component';
 import { CardPostSekeletonComponent } from './components/card-post-sekeleton/card-post-sekeleton.component';
+import { CardPostDetailComponent } from './components/card-post-detail/card-post-detail.component';
+import { CardCommentComponent } from './components/card-comment/card-comment.component';
 
 @NgModule({
   declarations:[
@@ -13,7 +15,9 @@ import { CardPostSekeletonComponent } from './components/card-post-sekeleton/car
     PostListComponent,
     CardPostComponent,
     DropdownUsersComponent,
-    CardPostSekeletonComponent
+    CardPostSekeletonComponent,
+    CardPostDetailComponent,
+    CardCommentComponent
   ],
   imports:[CommonModule, PostsRoutingModule],
   providers:[],

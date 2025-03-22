@@ -2,12 +2,21 @@
   <div class="container-post-list">
     <h1>Lista de post</h1>
     <div class="post-list">
-    <ng-container *ngIf="!(isLoading$ | async); else loading">
-      <app-card-post *ngFor="let post of (post$ | async)" [post]="post"></app-card-post>
-    </ng-container>
-    <ng-template #loading>
-      <app-card-post-sekeleton *ngFor="let i of [1,2,3,4]"></app-card-post-sekeleton>
-    </ng-template>
+      <ng-container *ngIf="!(isLoading$ | async); else loading">
+        <app-card-post *ngFor="let post of paginatedItems" [post]="post" (click)="detailPost(post)"></app-card-post>
+        <div class="pagination">
+          <button (click)="prevPage(postList)" [disabled]="currentPage === 1">
+            Anterior
+          </button>
+          <span>Página {{ currentPage }} de {{ Math.ceil(totalItems / pageSize) }}</span>
+          <button (click)="nextPage(postList)" [disabled]="currentPage === Math.ceil(totalItems / pageSize)">
+            Siguiente
+          </button>
+        </div>
+      </ng-container>
+      <ng-template #loading>
+        <app-card-post-sekeleton *ngFor="let i of [1,2,3,4]"></app-card-post-sekeleton>
+      </ng-template>
     </div>
   </div>
   <div class="container-filter-user">
