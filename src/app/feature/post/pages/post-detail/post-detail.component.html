@@ -1,8 +1,8 @@
 <div id="CardPostDetail">
   <app-loader *ngIf="(isloading$|async)" ></app-loader>
-  <app-card-post-detail  *ngIf="!(isloading$|async)" [postDetail]="(postDetail$ | async)!" ></app-card-post-detail>
+  <app-card-post-detail  *ngIf="!(isloading$|async)" [postDetail]="(postDetail$ | async)!"></app-card-post-detail>
   <div class="list-comments">
-    <div  *ngIf="(isloadingComments$|async) && !(isloading$|async)" class="loader"></div>
+    <div *ngIf="(isloadingComments$|async) && !(isloading$|async)" class="loader"></div>
     <ng-container *ngIf="!(isloadingComments$|async)">
       <app-card-comment *ngFor="let comment of (postDetailComments$ | async)" [comment]="comment"> </app-card-comment>
     </ng-container>

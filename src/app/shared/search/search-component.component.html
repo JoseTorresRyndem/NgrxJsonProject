@@ -1,5 +1,5 @@
 <div id="Search"  (document:click)="onDocumentClick($event)">
-  <input type="text" [(ngModel)]="searchTerm" (input)="filterList()" placeholder="Buscar..." class="search-input" />
+  <input  class="search-input"  type="text"  [(ngModel)]="searchTerm" (input)="filterList()" placeholder="Buscar..."/>
   <ul class="search-results" *ngIf="active">
     <li class="results" *ngFor="let item of filteredItems" (click)="seeDetailsPost(item.id)">
       <p class="title">

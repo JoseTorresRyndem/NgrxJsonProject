@@ -1,7 +1,7 @@
 <div id="DropdownUsersContainer" (document:click)="onDocumentClick($event)">
   <div class="input-user" (click)="activeDropdown()">
     <p [ngStyle]="{color: userSelected ? '#000' : 'grey'}">{{userSelected ?? 'Select user'}}</p>
-    <div class="container-svg" [class.rotated]="active">
+    <div class="container-svg"  [ngClass]="{'rotated': active}">
       <i class="fa-solid fa-caret-up"></i>
     </div>
   </div>

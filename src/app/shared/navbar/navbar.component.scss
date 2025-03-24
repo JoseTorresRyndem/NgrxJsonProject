@@ -7,14 +7,18 @@
   background: #190226;
   color: white;
   display: flex;
+  gap: 4rem;
   justify-content: space-between;
   min-height: 4rem;
   padding: 0  5rem;
-  gap: 4rem;
   width: 100%;
   & > h1{
-    white-space: nowrap;
     font-size: 2rem;
+    white-space: nowrap;
+    & > a{
+      color: white;
+      text-decoration: none;
+    }
   }
   & > a img{
     width: 3rem;
@@ -24,12 +28,11 @@
 @media (max-width: 600px) {
   #Nav {
     flex-direction: column;
-    justify-content: center;
     gap: 1rem;
+    justify-content: center;
     padding: 1rem 0;
     & > .container-filter-user {
       width: 100%;
-
     }
   }
 }

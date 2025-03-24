@@ -23,10 +23,10 @@
     }
   }
   &> .card-button{
+    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
 
     button {
       --color: #000000;
