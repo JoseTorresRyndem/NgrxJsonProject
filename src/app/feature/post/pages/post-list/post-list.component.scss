@@ -7,7 +7,7 @@
   flex-direction: row;
   gap: 2rem;
   height: 100%;
-  padding: 2rem  3rem;
+  padding: 1rem 3rem;
   width: 100%;
   & > .container-post-list{
     display: flex;
@@ -23,6 +23,7 @@
       align-items: center;
       display: flex;
       flex-direction: column;
+      gap: 1rem;
       justify-content: center;
       width: 100%;
       & > .post-list{

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Post} from "../../../../models/post.models";
 
 @Component({
@@ -6,13 +6,11 @@ import {Post} from "../../../../models/post.models";
   templateUrl: './card-post-detail.component.html',
   styleUrls: ['./card-post-detail.component.scss']
 })
-export class CardPostDetailComponent implements OnInit {
-
+export class CardPostDetailComponent{
+  /**
+   * @Input() postDetail variable to hold the post detail data
+   */
   @Input() postDetail!: Post;
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

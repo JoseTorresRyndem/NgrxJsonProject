@@ -1,10 +1,10 @@
 import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
 import {Store} from "@ngrx/store";
-import {User} from "../../../../models/users.models";
-import {loadedUsers} from "../../../../state/users/users.actions";
-import {selectUsersList} from "../../../../state/users/users.selectors";
+import {User} from "../../models/users.models";
+import {loadedUsers} from "../../state/users/users.actions";
+import {selectUsersList} from "../../state/users/users.selectors";
 import {Observable} from "rxjs";
-import {selectLoadingState} from "../../../../state/post/post.selectors";
+import {selectLoadingState} from "../../state/post/post.selectors";
 
 @Component({
   selector: 'app-dropdown-users',
@@ -67,7 +67,7 @@ unSelectUser() {
 }
 
   /**
-   * HostListener to close the dropdown when clicking outside of it
+   * HostListener to close the list when clicking outside of it
    * */
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
@@ -77,7 +77,7 @@ unSelectUser() {
     }
   }
   /**
-   * HostListener to close the dropdown when press key escape
+   * HostListener to close the list when press key escape
    * */
   @HostListener('document:keydown', ['$event'])
   onKeydown(event: KeyboardEvent) {

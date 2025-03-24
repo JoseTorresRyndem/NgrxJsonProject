@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Post, PostComment} from "../../models/post.models";
 import {User} from "../../models/users.models";
-import {delay, of} from "rxjs";
+import {delay} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +17,7 @@ export class PostService {
     return this.http.get<Post[]>(`${this.apiUrl}/posts`).pipe(delay(2200))
   }
   getPostDetail(id:number){
-    if(id){
-      return this.http.get<Post>(`${this.apiUrl}/posts/${id}`).pipe(delay(2200))
-    }
-    return of<Post>()
+    return this.http.get<Post>(`${this.apiUrl}/posts/${id}`).pipe(delay(2200))
   }
   getPostDetailComments(id:number){
     return this.http.get<PostComment[]>(`${this.apiUrl}/posts/${id}/comments`).pipe(delay(4200))

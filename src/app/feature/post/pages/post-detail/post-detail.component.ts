@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {loadPostDetail, loadPostDetailComments} from "../../../../state/post/post.actions";
 import {Store} from "@ngrx/store";
 import {
@@ -18,12 +18,26 @@ import {Post, PostComment} from "../../../../models/post.models";
 })
 export class PostDetailComponent implements OnInit {
 
-  postDetail$: Observable<Post> = this.store.select(selectPostDetail)
-  postDetailComments$: Observable<PostComment[]> = this.store.select(selectPostDetailComments)
+  /**
+   * Observable for loading state
+   */
   isloading$: Observable<boolean> = this.store.select(selectLoadingState)
-  isloadingComments$: Observable<boolean> = this.store.select(selectLoadComments)
 
-  constructor(private route:ActivatedRoute,private store:Store, private router:Router) { }
+  /**
+   * Observable for loading comments state
+   */
+  isloadingComments$: Observable<boolean> = this.store.select(selectLoadComments)
+  /**
+   * Observable for post details
+   */
+  postDetail$: Observable<Post> = this.store.select(selectPostDetail)
+
+  /**
+   * Observable for post detail comments
+   */
+  postDetailComments$: Observable<PostComment[]> = this.store.select(selectPostDetailComments)
+
+  constructor(private route:ActivatedRoute,private store:Store,) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(({id}) => {
@@ -31,9 +45,5 @@ export class PostDetailComponent implements OnInit {
         this.store.dispatch(loadPostDetailComments({postId: id}))
       }
     )
-  }
-
-  back() {
-    this.router.navigate(['/posts'])
   }
 }

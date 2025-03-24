@@ -1,15 +1,14 @@
-
+:host{
+  width: 100%;
+}
 #CardPostComment{
-  background-color: rgba(105, 117, 101, 0.15);
-  border-radius: 1rem;
-  border: 4px dotted rgba(255, 255, 255, 0.5);
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  color: #ECDFCC;
+  border-radius: .6rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+  color: #000;
   display: flex;
   flex-direction: column;
   gap: .5rem;
-  max-width: 750px;
-  padding: 1rem;
+  padding: 1.5rem;
   width: 100%;
   &>.card-header{
     align-items: center;

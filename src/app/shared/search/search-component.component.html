@@ -1,0 +1,16 @@
+<div id="Search"  (document:click)="onDocumentClick($event)">
+  <input type="text" [(ngModel)]="searchTerm" (input)="filterList()" placeholder="Buscar..." class="search-input" />
+  <ul class="search-results" *ngIf="active">
+    <li class="results" *ngFor="let item of filteredItems" (click)="seeDetailsPost(item.id)">
+      <p class="title">
+        {{ item.title.slice(0,20)+'...' }}
+      </p>
+      <p class="body">
+        {{ item.body.slice(0,50)+'...' }}
+      </p>
+    </li>
+    <li class="no-results" *ngIf="filteredItems.length === 0">
+      <p>No existen resultados</p>
+    </li>
+  </ul>
+</div>

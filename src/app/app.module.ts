@@ -12,6 +12,7 @@ import {PostEffects} from "./state/post/post.effects";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterOutlet} from "@angular/router";
 import {UsersEffects} from "./state/users/users.effects";
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {UsersEffects} from "./state/users/users.effects";
     AppRoutingModule,
     StoreModule.forRoot(appReducer),
     EffectsModule.forRoot([PostEffects,UsersEffects]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,12 +1,13 @@
-#card{
-  background-color: rgba(105, 117, 101, 0.43);
-  border-radius: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  color: #ECDFCC;
-  max-width: 800px;
-  padding: 2rem;
+:host{
   width: 100%;
+}
+
+#card{
+  background-color: white;
+  border-radius: .6rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+  color: rgba(0, 0, 0, 0.9);
+  padding: 2rem;
   & > .card-header{
     font-size: 3rem;
     margin-bottom: 2rem;

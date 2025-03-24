@@ -70,12 +70,12 @@
       padding:.8rem;
     }
     & > .item-user:hover{
-      background: rgba(30, 32, 30, 0.29);
+      background: #f1f5f9;
     }
   }
 }
 .selectedUser{
-  background: rgba(30, 32, 30, 0.29);
+  background: #f1f5f9;
   cursor: default !important;
   font-weight: bold;
 }
