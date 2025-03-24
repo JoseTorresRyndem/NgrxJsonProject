@@ -4,7 +4,7 @@
   box-sizing: border-box;
   filter: blur(12px);
   height: 70px;
-  mask: conic-gradient(#000 0 0) content-box exclude,conic-gradient(#000 0 0);
+  mask: conic-gradient(#000 0deg, #000 360deg) content-box exclude, conic-gradient(#000 0deg, #000 360deg);
   padding: 10px;
   position: relative;
   &::before {
