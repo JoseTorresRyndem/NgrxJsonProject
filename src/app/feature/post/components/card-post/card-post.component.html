@@ -10,5 +10,8 @@
     </div>
   </div>
     <hr>
+  <div class="card-button">
     <p>{{ post.body.length > 100 ? post.body.slice(0,100) + '...' : post.body  }}</p>
+    <button (click)="detailPost(post)">Ver</button>
+  </div>
 </div>

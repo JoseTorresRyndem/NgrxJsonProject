@@ -3,16 +3,16 @@
 }
 
 #DropdownUsersContainer{
-  position: relative;
   display: flex;
   flex-direction: column;
+  position: relative;
   width: 100%;
   & > .input-user {
-    display: flex;
     background-color: #ffffff;
-    border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
     cursor: pointer;
+    display: flex;
     flex-direction: row;
     gap: 5px;
     height: 3rem;
@@ -30,30 +30,30 @@
     }
   }
   & > .list-container{
-    position: absolute;
-    display: flex;
     background-color: #ffffff;
     border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px 0, rgba(0, 0, 0, 0.08) 0 0 0 1px;
+    display: flex;
     flex-direction: column;
     margin-top: 5px;
     max-height: 16rem;
     overflow-y: auto;
+    position: absolute;
+    top: 100%;
     width: 100%;
     z-index: 1;
-    top: 100%;
-    box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px 0, rgba(0, 0, 0, 0.08) 0 0 0 1px;
     & > .item-user{
+      align-items: center;
+      cursor: pointer;
       display: flex;
       flex-direction: row;
-      align-items: center;
       justify-content: space-between;
       padding:.8rem;
-      cursor: pointer;
       & > .item{
         & > .email{
+          color: grey;
           font-size: .7rem;
           font-style: italic;
-          color: grey;
         }
       }
       & > .delete{
@@ -63,9 +63,9 @@
 
     }
     & > .item-user-no-hover{
+      align-items: center;
       display: flex;
       flex-direction: row;
-      align-items: center;
       justify-content: space-between;
       padding:.8rem;
     }
@@ -75,9 +75,9 @@
   }
 }
 .selectedUser{
+  background: rgba(30, 32, 30, 0.29);
   cursor: default !important;
   font-weight: bold;
-  background: rgba(30, 32, 30, 0.29);
 }
 .rotated{
   transform: rotate(180deg);

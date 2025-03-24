@@ -1,0 +1,11 @@
+<div id="pagination">
+  <ng-container *ngIf="{ currentPage: (currentPage$ | async), totalItems: (totalItems$ | async) } as data">
+    <button (click)="prevPage(data.currentPage!)" [disabled]="data.currentPage! === 1">
+      <i class="fa-solid fa-arrow-left"></i>
+    </button>
+    <span> Página {{ data.currentPage! }} de {{ Math.ceil(data.totalItems! / pageSize) }}</span>
+    <button (click)="nextPage(data.currentPage!, data.totalItems!)" [disabled]="data.currentPage! >= data.totalItems! / pageSize">
+      <i class="fa-solid fa-arrow-right"></i>
+    </button>
+  </ng-container>
+</div>

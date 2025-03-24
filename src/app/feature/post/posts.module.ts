@@ -5,9 +5,10 @@ import {PostListComponent} from "./pages/post-list/post-list.component";
 import {CommonModule} from "@angular/common";
 import { CardPostComponent } from './components/card-post/card-post.component';
 import { DropdownUsersComponent } from './components/dropdown-users/dropdown-users.component';
-import { CardPostSekeletonComponent } from './components/card-post-sekeleton/card-post-sekeleton.component';
 import { CardPostDetailComponent } from './components/card-post-detail/card-post-detail.component';
 import { CardCommentComponent } from './components/card-comment/card-comment.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { PaginationPostComponent } from './components/pagination-post/pagination-post.component';
 
 @NgModule({
   declarations:[
@@ -15,9 +16,10 @@ import { CardCommentComponent } from './components/card-comment/card-comment.com
     PostListComponent,
     CardPostComponent,
     DropdownUsersComponent,
-    CardPostSekeletonComponent,
     CardPostDetailComponent,
-    CardCommentComponent
+    CardCommentComponent,
+    LoaderComponent,
+    PaginationPostComponent
   ],
   imports:[CommonModule, PostsRoutingModule],
   providers:[],

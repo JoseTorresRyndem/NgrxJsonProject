@@ -4,23 +4,29 @@ import {Post, PostComment} from "../../models/post.models";
 
 
 export interface PostState{
-  posts:Post[],
   allPosts:Post[],
+  posts:Post[],
+  paginatedPosts: Post[];
+  currentPage: number;
+  pageSize: number;
+  loading:boolean,
   postDetail:Post,
   postDetailComments:PostComment[],
   loadingComments:boolean,
-  loading:boolean,
   error:any
 }
 export const initialState:PostState= {
+  allPosts:[],
   posts:[],
+  paginatedPosts: [],
+  currentPage: 1,
+  pageSize: 5,
   postDetail: {
     userId:0,
     id: 0,
     title: '',
     body: '',
   },
-  allPosts:[],
   postDetailComments:[],
   loadingComments:false,
   loading:false,
@@ -35,11 +41,23 @@ const _postReducer = createReducer(initialState,
     ...state,
     loading:false,
     posts:[...postList],
-    allPosts:[...postList]
+    allPosts:[...postList],
+    paginatedPosts: applyPagination(postList, 1, state.pageSize),
+    currentPage: 1
   })),
-  on(PostActions.postListUserId,(state,{userId})=>({
+  on(PostActions.postListUserId,(state,{userId})=>{
+    const filteredPosts = userId === 0 ? [...state.allPosts] : state.allPosts.filter(post => post.userId === userId);
+    return {
+      ...state,
+      posts: filteredPosts,
+      paginatedPosts: applyPagination(filteredPosts, 1, state.pageSize),
+      currentPage: 1
+    }
+  }),
+  on(PostActions.updatePagination, (state, { page }) => ({
     ...state,
-    posts: userId === 0 ? [...state.allPosts] : state.allPosts.filter(post => post.userId === userId),
+    currentPage: page,
+    paginatedPosts: applyPagination(state.posts, page, state.pageSize)
   })),
   on(PostActions.postDetailSuccess,(state,{postDetail})=>({
     ...state,
@@ -51,9 +69,14 @@ const _postReducer = createReducer(initialState,
     loadingComments:false,
     postDetailComments:[...postComments]
   })),
-
 );
 
 export function postReducer (state:PostState = initialState,actions:Action){
   return _postReducer(state,actions)
+}
+
+function applyPagination(posts: Post[], page: number, pageSize: number): Post[] {
+  const start = (page - 1) * pageSize;
+  const end = start + pageSize;
+  return posts.slice(start, end);
 }

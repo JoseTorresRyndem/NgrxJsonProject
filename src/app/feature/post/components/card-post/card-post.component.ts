@@ -1,16 +1,19 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Post} from "../../../../models/post.models";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-card-post',
   templateUrl: './card-post.component.html',
   styleUrls: ['./card-post.component.scss']
 })
-export class CardPostComponent implements OnInit {
+export class CardPostComponent  {
   @Input() post!: Post;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit(): void {
+  detailPost(post: Post) {
+    this.router.navigate(['/posts', post.id]);
   }
+
 }
