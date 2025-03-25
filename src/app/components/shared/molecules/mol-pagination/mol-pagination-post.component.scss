@@ -1,0 +1,17 @@
+:host {
+  width: 100%;
+}
+#pagination {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+  & > button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+}

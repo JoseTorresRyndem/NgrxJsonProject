@@ -1,0 +1,25 @@
+<div id="CardPost">
+  <div class="card-header">
+    <div>
+      <p>Titulo:</p>
+      <h2>
+        {{
+          post.title.length > 30
+            ? post.title.slice(0, 30) + "..."
+            : (post.title | titlecase)
+        }}
+      </h2>
+    </div>
+    <div class="card-header-user">
+      <i class="fa-solid fa-user"></i>
+      <p>ID: {{ post.userId }}</p>
+    </div>
+  </div>
+  <hr />
+  <div class="card-button">
+    <p>
+      {{ post.body.length > 100 ? post.body.slice(0, 100) + "..." : post.body }}
+    </p>
+    <button (click)="detailPost(post)">Ver</button>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div id="ListPostContainer">
+  <div class="container-post-list">
+    <h1>Lista de publicaciones</h1>
+    <div class="container-list-pagination">
+      <div class="post-list">
+        <ng-container *ngIf="!(isLoading$ | async); else loading">
+          <app-card-post *ngFor="let post of paginatedItems$ | async" [post]="post"></app-card-post>
+        </ng-container>
+        <ng-template #loading>
+          <div class="container-loader">
+            <app-loader ></app-loader>
+          </div>
+        </ng-template>
+      </div>
+      <app-pagination *ngIf="!(isLoading$ | async)"></app-pagination>
+    </div>
+  </div>
+  <div class="container-filter-user">
+    <h1>Filtrado por usuario</h1>
+    <app-dropdown (userSelectedEmmit) = "onUserSelected($event)"></app-dropdown>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div id="DropdownUsersContainer" (document:click)="onDocumentClick($event)">
+  <div class="input-user" (click)="activeDropdown()">
+    <p [ngStyle]="{ color: userSelected ? '#000' : 'grey' }">
+      {{ userSelected ?? "Select user" }}
+    </p>
+    <div class="container-svg" [ngClass]="{ rotated: active }">
+      <i class="fa-solid fa-caret-up"></i>
+    </div>
+  </div>
+  <div class="list-container" *ngIf="active">
+    <div
+      class="item-user"
+      *ngFor="let user of users$ | async"
+      [class.selectedUser]="userSelected === user.username"
+      (click)="selectUser(user)"
+    >
+      <div class="item">
+        <p>{{ user.username }} {{ user.name }}</p>
+        <p class="email">{{ user.email }}</p>
+      </div>
+      <div
+        class="delete"
+        *ngIf="userSelected === user.username"
+        (click)="unSelectUser()"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+    </div>
+    <div *ngIf="isLoading$ | async" class="item-user-no-hover">
+      No existen resultados
+    </div>
+  </div>
+</div>
